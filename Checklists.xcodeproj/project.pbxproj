@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4619C6251B4BC9BE00A09889 /* ChecklistItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4619C6241B4BC9BE00A09889 /* ChecklistItem.swift */; };
 		4674BB0F1B46693A00A2BF26 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4674BB0E1B46693A00A2BF26 /* AppDelegate.swift */; };
 		4674BB141B46693A00A2BF26 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4674BB121B46693A00A2BF26 /* Main.storyboard */; };
 		4674BB161B46693A00A2BF26 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4674BB151B46693A00A2BF26 /* Images.xcassets */; };
@@ -26,6 +27,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		4619C6241B4BC9BE00A09889 /* ChecklistItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChecklistItem.swift; sourceTree = "<group>"; };
 		4674BB091B46693A00A2BF26 /* Checklists.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Checklists.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4674BB0D1B46693A00A2BF26 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4674BB0E1B46693A00A2BF26 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -83,6 +85,7 @@
 				4674BB151B46693A00A2BF26 /* Images.xcassets */,
 				4674BB171B46693A00A2BF26 /* LaunchScreen.xib */,
 				4674BB0C1B46693A00A2BF26 /* Supporting Files */,
+				4619C6241B4BC9BE00A09889 /* ChecklistItem.swift */,
 			);
 			path = Checklists;
 			sourceTree = "<group>";
@@ -213,6 +216,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				4674BB2F1B46744900A2BF26 /* ChecklistViewController.swift in Sources */,
+				4619C6251B4BC9BE00A09889 /* ChecklistItem.swift in Sources */,
 				4674BB0F1B46693A00A2BF26 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -409,6 +413,7 @@
 				4674BB2A1B46693A00A2BF26 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		4674BB2B1B46693A00A2BF26 /* Build configuration list for PBXNativeTarget "ChecklistsTests" */ = {
 			isa = XCConfigurationList;
@@ -417,6 +422,7 @@
 				4674BB2D1B46693A00A2BF26 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
