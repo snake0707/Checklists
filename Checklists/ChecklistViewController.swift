@@ -11,40 +11,13 @@ import UIKit
 class ChecklistViewController: UITableViewController, ItemDetailViewControllerDelegate {
     
     var items: [ChecklistItem]
+    var checklist: Checklist!
     
     required init(coder aDecoder: NSCoder) {
         items = [ChecklistItem]()
         
-//        let row0item = ChecklistItem()
-//        row0item.text = "Walk the dog"
-//        row0item.checked = false
-//        items.append(row0item)
-//        
-//        let row1item = ChecklistItem()
-//        row1item.text = "Brush my teeth"
-//        row1item.checked = true
-//        items.append(row1item)
-//        
-//        let row2item = ChecklistItem()
-//        row2item.text = "Learn iOS development"
-//        row2item.checked = true
-//        items.append(row2item)
-//        
-//        let row3item = ChecklistItem()
-//        row3item.text = "Soccer practice"
-//        row3item.checked = false
-//        items.append(row3item)
-//        
-//        let row4item = ChecklistItem()
-//        row4item.text = "Eat ice cream"
-//        row4item.checked = true
-//        items.append(row4item)
-        
         super.init(coder: aDecoder)
         loadChecklistItems()
-        
-//        println("Documents folder is \(documentsDirectory())")
-//        println("Data file path is \(dataFilePath())")
     }
     
     func loadChecklistItems() {
@@ -60,7 +33,8 @@ class ChecklistViewController: UITableViewController, ItemDetailViewControllerDe
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+        tableView.rowHeight = 44
+        title = checklist.name
     }
 
     override func didReceiveMemoryWarning() {
