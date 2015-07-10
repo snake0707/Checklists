@@ -8,35 +8,8 @@
 
 import UIKit
 
-class AllListsViewController: UITableViewController, ListDetailViewControllerDelegate {
-//    var lists: [Checklist]
+class AllListsViewController: UITableViewController, ListDetailViewControllerDelegate, UINavigationControllerDelegate {
     var dataModel: DataModel!
-    
-//    required init!(coder aDecoder: NSCoder!) {
-//        lists = [Checklist]()
-//        
-//        super.init(coder: aDecoder)
-//        
-////        var list = Checklist(name: "Birthdays")
-////        lists.append(list)
-////        
-////        list = Checklist(name: "Groceries")
-////        lists.append(list)
-////        
-////        list = Checklist(name: "Cool Apps")
-////        lists.append(list)
-////        
-////        list = Checklist(name: "To Do")
-////        lists.append(list)
-////        
-////        for list in lists {
-////            let item = ChecklistItem()
-////            item.text = "Item for \(list.name)"
-////            list.items.append(item)
-////        }
-//        
-//        loadChecklists()
-//    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -46,6 +19,18 @@ class AllListsViewController: UITableViewController, ListDetailViewControllerDel
 
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem()
+    }
+    
+    override func viewDidAppear(animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        navigationController?.delegate = self
+        
+        let index = dataModel.indexOfSelectedChecklist
+        if index >= 0 && index < dataModel.lists.count {
+            let checklist = dataModel.lists[index]
+            performSegueWithIdentifier("ShowChecklist", sender: checklist)
+        }
     }
 
     override func didReceiveMemoryWarning() {
@@ -75,6 +60,9 @@ class AllListsViewController: UITableViewController, ListDetailViewControllerDel
     }
     
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+//        NSUserDefaults.standardUserDefaults().setInteger(indexPath.row, forKey: "ChecklistIndex")
+        dataModel.indexOfSelectedChecklist = indexPath.row
+        
         let checklist = dataModel.lists[indexPath.row]
         performSegueWithIdentifier("ShowChecklist", sender: checklist)
     }
@@ -132,5 +120,12 @@ class AllListsViewController: UITableViewController, ListDetailViewControllerDel
             }
         }
         dismissViewControllerAnimated(true, completion: nil)
+    }
+    
+    func navigationController(navigationController: UINavigationController, willShowViewController viewController: UIViewController, animated: Bool) {
+        if viewController === self {
+            dataModel.indexOfSelectedChecklist = -1
+//            NSUserDefaults.standardUserDefaults().setInteger(-1, forKey: "ChecklistIndex")
+        }
     }
 }
