@@ -63,7 +63,7 @@ class ChecklistViewController: UITableViewController, ItemDetailViewControllerDe
             let controller = navigationController.topViewController as! ItemDetailViewController
             controller.delegate = self
             if let indexPath = tableView.indexPathForCell(sender as! UITableViewCell) {
-//                controller.itemToEdit = items[indexPath.row]
+                controller.itemToEdit = checklist.items[indexPath.row]
             }
         }
     }
@@ -76,6 +76,7 @@ class ChecklistViewController: UITableViewController, ItemDetailViewControllerDe
         } else {
             label.text = ""
         }
+        label.textColor = view.tintColor
     }
     
     func configureTextForCell(cell: UITableViewCell, withChecklistItem item: ChecklistItem) {
