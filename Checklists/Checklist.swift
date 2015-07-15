@@ -28,6 +28,7 @@ class Checklist: NSObject, NSCoding {
         items = aDecoder.decodeObjectForKey("Items") as! [ChecklistItem]
         iconName = aDecoder.decodeObjectForKey("IconName") as! String
         super.init()
+        sortChecklistItem()
     }
     
     func encodeWithCoder(aCoder: NSCoder) {
@@ -44,5 +45,9 @@ class Checklist: NSObject, NSCoding {
             }
         }
         return count
+    }
+    
+    func sortChecklistItem() {
+        items.sort({ checklistItem1, checklistItem2 in return checklistItem1.dueDate.compare(checklistItem2.dueDate) == NSComparisonResult.OrderedDescending })
     }
 }
